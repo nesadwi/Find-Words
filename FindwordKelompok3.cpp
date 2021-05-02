@@ -44,7 +44,50 @@ int main(){
   
   
   
-  
+	for (int i = 0; i < 15; i++)
+    {
+        check = strstr(words[i], input);
+        
+	    if(check != NULL){
+	        return true;
+	    }
+    }
+    
+    return false;
+}
+
+bool searchReverseVertical(char input[]){ //Nyari Secari Vertikal
+	char *check;
+	char kata[15];
+	
+	for (int i = 0; i < 15; i++)
+    {
+        for (int j = 0; j < 15; j++)
+        {
+            kata[j] = words[j][i];
+        }
+        
+        reverse(kata, kata + strlen(kata)); //huruf di balik menggunakan reverse
+        check = strstr(kata, input);
+
+        if(check != NULL){
+	        return true;
+	    }
+    }
+    
+    return false;
+}
+
+bool searchReverseHorizontal(char input[]){ //Nyari Secara Horizontal
+	char *check;
+	char kata[15]; //Menyimpan Huruf Acak
+	
+	for (int i = 0; i < 15; i++)
+    {
+    	for(int j = 0; j < 15; j++){
+	    	kata[j] = words[i][j];
+		}
+		  
   
   
   
