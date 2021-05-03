@@ -123,4 +123,64 @@ int main()
         }
     }
     return 0;
+}reverse(kata, kata + strlen(kata)); //Membalik Huruf
+	    check = strstr(kata, input); //Melihat Bagian yang sama Apakah Ada
+        
+	    if(check != NULL){ //Kata Ada
+	        return true; //Maka True
+	    }
+    }
+    
+    return false; //Dicari Jika tidak Maka False
 }
+int main()
+{
+    char word[16];
+    int n;
+    
+
+    cin>>n;
+    for (int i=0;i<n;i++){
+    	cin.ignore();
+        cin.getline(word,16,'\n');
+        if (searchVertical(word) || searchHorizontal(word) || searchReverseVertical(word) || searchReverseHorizontal(word)){
+            cout << "Ada\n";
+        }
+        else{
+           cout << "Tidak \n";
+        }
+    }
+    return 0;
+}
+
+reverse(kata, kata + strlen(kata)); //Membalik Huruf
+	    check = strstr(kata, input); //Melihat Bagian yang sama Apakah Ada
+        
+	    if(check != NULL){ //Kata Ada
+	        return true; //Maka True
+	    }
+    }
+    
+    return false; //Dicari Jika tidak Maka False
+}
+int main()
+{
+    char word[16];
+    int n;
+    
+
+    cin>>n;
+    for (int i=0;i<n;i++){
+    	cin.ignore();
+        cin.getline(word,16,'\n');
+        if (searchVertical(word) || searchHorizontal(word) || searchReverseVertical(word) || searchReverseHorizontal(word)){
+            cout << "Ada\n";
+        }
+        else{
+           cout << "Tidak \n";
+        }
+    }
+    return 0;
+}
+
+
