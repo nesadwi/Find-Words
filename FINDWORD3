@@ -1,0 +1,143 @@
+//1717051070 - Azhari
+//2017051009 - Nesa Dwi Cahyani
+//2017051032 - Mesak Tanati
+// https://github.com/nesadwi/Find-Words/commit/c2ee4331f31cda5d6c5f5786a5a87591704651c0
+#include <iostream>
+#include <cstring>
+#include <algorithm>
+using namespace std;
+const int cols = 16, rows = 15;
+ char words[rows][cols] = {"tgbwwinterwsesn",
+                        	"aaunttmmhfoodnb",
+                            "jlwcqldzmpmvdmr",
+                            "asagmquwvvbsohi",
+                            "bwplotanadtpgnc",
+                            "rewngodjcpnatnk",
+                            "eeotwosbqharrsa",
+                            "azcgeswewnaknpb",
+                            "dinnerqodlwdcar",
+                            "onopkwmparktzcc",
+                            "qbfrogmamwpweey",
+                            "lqzqnnmrzjjsclg",
+                            "mosgzczetdbooto",
+                            "pdcrzmsngrdnrpz",
+                            "ohnkzwaterjgtra"};
+
+char *getWordVertical(int);
+char *reverse(char *);
+bool searchVertical(char *);
+bool searchHorizontal(char *);
+
+char  *getWordVertical(int vrx)
+{
+	char tes[rows];
+	for (int i=0; i<rows; i++){
+		tes[i]= *(*(words+i)+vrx);
+	}
+}
+
+//bool searchVertikal(char input[]){
+//	char kata ;
+//	bool tes;
+//	for (int i = 0; i < rows; i++)
+//    {
+//        kata == strstr(kata, input);
+//        
+//	    if(strstr(kata, input) || strstr(reverse(kata), input ))
+//		{
+//			tes =true;
+//			break;
+//	    }
+//	     return true;
+//    }
+//    
+//    return false;
+//}
+
+bool searchVertical(char input[]){
+	char *check;
+	char kata[rows];
+	
+	for (int i = 0; i < rows; i++)
+    {
+        for (int j = 0; j < rows; j++)
+        {
+            kata[j] = words[i][j];
+        }
+        
+        check = strstr(kata, input);
+
+     if(strstr(kata, input))  // || strstr (getWordVertical(vrx), input)
+		{
+	        return true;
+	    }
+    }
+    
+    return false;
+}
+
+char *reverse(char *word)
+{
+	strrev(word);
+}
+
+bool searchHorizontal(char *word){
+	char *check;
+	bool tes;
+	for (int i = 0; i < rows; i++)
+    {
+        check = strstr(words[i], word);
+        
+	    if(strstr(check, word) || strstr(reverse(check), word ))
+		{
+			tes =true;
+			break;
+	    }
+	     return true;
+    }
+    
+    return false;
+}
+
+
+//bool searchReverseHorizontal(char input[]){ //Nyari Secara Horizontal
+//	char *check;
+//	char kata[15]; //Menyimpan Huruf Acak
+//	
+//	for (int i = 0; i < 15; i++)
+//    {
+//    	for(int j = 0; j < 15; j++){
+//	    	kata[j] = words[i][j];
+//		}
+//		
+//	    reverse(kata, kata + strlen(kata)); //Membalik Huruf
+//	    check = strstr(kata, input); //Melihat Bagian yang sama Apakah Ada
+//        
+//	    if(check != NULL){ //Kata Ada
+//	        return true; //Maka True
+//	    }
+//    }
+//    
+//    return false; //Dicari Jika tidak Maka False
+//}
+
+
+int main()
+{
+    char word[16];
+    int n;
+
+    cout << "Masukkan Jumlah kata yang dicari : ";
+    cin>>n;
+    for (int i=0;i<n;i++){
+    	cin.ignore();
+        cin.getline(word,16,'\n');
+        if (searchVertical(word) || searchHorizontal(word)) {
+            cout << "Ada\n";
+        }
+        else{
+           cout << "Tidak \n";
+        }
+    }
+    return 0;
+}
